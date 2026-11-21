@@ -4,6 +4,19 @@ import {
   U11_VOCAB_PAGE79,
   U11_VOCAB_PAGE80,
 } from './pages63to83Data';
+import {
+  U12_VOCAB_PAGE88,
+  U12_VOCAB_PAGE89,
+  U13_VOCAB_PAGE97,
+  U13_VOCAB_PAGE98,
+  U14_VOCAB_PAGE104,
+} from './pages84to104Data';
+import {
+  U14_VOCAB_PAGE105,
+  U14_VOCAB_PAGE106,
+  U15_VOCAB_PAGE111,
+  U15_VOCAB_PAGE112,
+} from './pages105to125Data';
 
 export const UNITS_11_TO_15: UnitData[] = [
   {
@@ -104,20 +117,16 @@ export const UNITS_11_TO_15: UnitData[] = [
     themeColor: '#D97706',
     pdfPageStart: 88,
     goal: 'Cảnh báo các tình huống nguy hiểm ở nhà và ngoài đường, giải thích hậu quả có thể xảy ra với "may".',
-    vocab: [
-      { id: 'u12v1', word: 'knife', ipa: '/naɪf/', pos: 'n', meaning: 'con dao', example: "Don't play with the knife!", exampleVi: 'Đừng nghịch dao nhé!' },
-      { id: 'u12v2', word: 'matches', ipa: '/ˈmætʃɪz/', pos: 'n', meaning: 'que diêm', example: "Don't play with matches!", exampleVi: 'Đừng nghịch diêm!' },
-      { id: 'u12v3', word: 'stove', ipa: '/stəʊv/', pos: 'n', meaning: 'cái bếp nấu', example: "Don't touch the hot stove!", exampleVi: 'Đừng chạm vào bếp nóng!' },
-      { id: 'u12v4', word: 'stairs', ipa: '/steəz/', pos: 'n', meaning: 'cầu thang', example: "Don't run down the stairs!", exampleVi: 'Đừng chạy xuống cầu thang!' },
-      { id: 'u12v5', word: 'balcony', ipa: '/ˈbælkəni/', pos: 'n', meaning: 'ban công', example: "Don't climb the balcony!", exampleVi: 'Đừng trèo lên ban công!' },
-      { id: 'u12v6', word: 'cut yourself', ipa: '/kʌt jɔːˈself/', pos: 'v', meaning: 'tự làm đứt tay', example: 'You may cut yourself.', exampleVi: 'Bạn có thể tự làm đứt tay đấy.' },
-      { id: 'u12v7', word: 'get a burn', ipa: '/ɡet ə bɜːn/', pos: 'v', meaning: 'bị bỏng', example: 'You may get a burn.', exampleVi: 'Bạn có thể bị bỏng đấy.' },
-      { id: 'u12v8', word: 'fall off', ipa: '/fɔːl ɒf/', pos: 'v', meaning: 'ngã khỏi (xe, cây)', example: 'You may fall off your bike.', exampleVi: 'Bạn có thể ngã xe đạp đấy.' },
-      { id: 'u12v9', word: 'break your leg', ipa: '/breɪk jɔː leɡ/', pos: 'v', meaning: 'bị gãy chân', example: 'You may break your leg.', exampleVi: 'Bạn có thể bị gãy chân đấy.' },
-      { id: 'u12v10', word: 'roll off', ipa: '/rəʊl ɒf/', pos: 'v', meaning: 'lăn khỏi (giường)', example: 'The baby may roll off the bed.', exampleVi: 'Em bé có thể lăn khỏi giường.' },
-      { id: 'u12v11', word: 'scratch', ipa: '/skrætʃ/', pos: 'v', meaning: 'cào xước', example: 'The cat may scratch you.', exampleVi: 'Con mèo có thể cào bạn đấy.' },
-      { id: 'u12v12', word: 'helmet', ipa: '/ˈhelmɪt/', pos: 'n', meaning: 'mũ bảo hiểm', example: 'Always wear a helmet when riding a bike.', exampleVi: 'Luôn đội mũ bảo hiểm khi đạp xe nhé.' },
-    ],
+    vocab: [...U12_VOCAB_PAGE88, ...U12_VOCAB_PAGE89].map((w, idx) => ({
+      id: `u12v${idx + 1}`,
+      word: w.word,
+      ipa: w.ipa,
+      pos: w.pos,
+      meaning: w.meaning,
+      example: w.example,
+      exampleVi: w.exampleVi,
+      memoryTip: w.tip,
+    })),
     grammar: [
       {
         id: 'u12g1',
@@ -198,20 +207,16 @@ export const UNITS_11_TO_15: UnitData[] = [
     themeColor: '#0284C7',
     pdfPageStart: 97,
     goal: 'Hỏi và chia sẻ các hoạt động giải trí yêu thích của bản thân và các thành viên trong gia đình.',
-    vocab: [
-      { id: 'u13v1', word: 'free time', ipa: '/friː taɪm/', pos: 'n', meaning: 'thời gian rảnh rỗi', example: 'What do you do in your free time?', exampleVi: 'Bạn làm gì lúc rảnh rỗi?' },
-      { id: 'u13v2', word: 'surf the Internet', ipa: '/sɜːf ði ˈɪntənet/', pos: 'v', meaning: 'lướt mạng Internet', example: 'I often surf the Internet to find information.', exampleVi: 'Mình thường lướt mạng để tìm thông tin.' },
-      { id: 'u13v3', word: 'do karate', ipa: '/duː kəˈrɑːti/', pos: 'v', meaning: 'tập võ karate', example: 'He does karate twice a week.', exampleVi: 'Bạn ấy tập karate hai lần một tuần.' },
-      { id: 'u13v4', word: 'go fishing', ipa: '/ɡəʊ ˈfɪʃɪŋ/', pos: 'v', meaning: 'đi câu cá', example: 'My father goes fishing on Sundays.', exampleVi: 'Bố mình đi câu cá vào các ngày Chủ nhật.' },
-      { id: 'u13v5', word: 'go skating', ipa: '/ɡəʊ ˈskeɪtɪŋ/', pos: 'v', meaning: 'đi trượt pa-tanh', example: 'We go skating in the park.', exampleVi: 'Chúng mình đi trượt pa-tanh ở công viên.' },
-      { id: 'u13v6', word: 'go camping', ipa: '/ɡəʊ ˈkæmpɪŋ/', pos: 'v', meaning: 'đi cắm trại', example: 'My family often goes camping.', exampleVi: 'Gia đình mình thường đi cắm trại.' },
-      { id: 'u13v7', word: 'go hiking', ipa: '/ɡəʊ ˈhaɪkɪŋ/', pos: 'v', meaning: 'đi bộ đường dài, leo núi', example: 'They go hiking in the mountains.', exampleVi: 'Họ đi bộ leo núi.' },
-      { id: 'u13v8', word: 'clean the house', ipa: '/kliːn ðə haʊs/', pos: 'v', meaning: 'dọn dẹp nhà cửa', example: 'I help my mum clean the house.', exampleVi: 'Mình giúp mẹ dọn dẹp nhà cửa.' },
-      { id: 'u13v9', word: 'go shopping', ipa: '/ɡəʊ ˈʃɒpɪŋ/', pos: 'v', meaning: 'đi mua sắm', example: 'My mother goes shopping every weekend.', exampleVi: 'Mẹ mình đi mua sắm mỗi cuối tuần.' },
-      { id: 'u13v10', word: 'go to the cinema', ipa: '/ɡəʊ tə ðə ˈsɪnəmə/', pos: 'v', meaning: 'đi xem phim ở rạp', example: 'Let’s go to the cinema tonight.', exampleVi: 'Tối nay đi rạp xem phim nhé.' },
-      { id: 'u13v11', word: 'draw pictures', ipa: '/drɔː ˈpɪktʃəz/', pos: 'v', meaning: 'vẽ tranh', example: 'She likes drawing pictures.', exampleVi: 'Bạn ấy thích vẽ tranh.' },
-      { id: 'u13v12', word: 'animal programme', ipa: '/ˈænɪml ˈprəʊɡræm/', pos: 'n', meaning: 'chương trình thế giới động vật', example: 'I watch the World of Animals programme.', exampleVi: 'Mình xem chương trình Thế giới Động vật.' },
-    ],
+    vocab: [...U13_VOCAB_PAGE97, ...U13_VOCAB_PAGE98].map((w, idx) => ({
+      id: `u13v${idx + 1}`,
+      word: w.word,
+      ipa: w.ipa,
+      pos: w.pos,
+      meaning: w.meaning,
+      example: w.example,
+      exampleVi: w.exampleVi,
+      memoryTip: w.tip,
+    })),
     grammar: [
       {
         id: 'u13g1',
@@ -278,20 +283,16 @@ export const UNITS_11_TO_15: UnitData[] = [
     themeColor: '#059669',
     pdfPageStart: 104,
     goal: 'Kể lại diễn biến truyện cổ tích theo trình tự (First, Then, Next, In the end) và nêu cảm nghĩ về nhân vật.',
-    vocab: [
-      { id: 'u14v1', word: 'watermelon', ipa: '/ˈwɔːtəmelən/', pos: 'n', meaning: 'quả dưa hấu', example: 'An Tiem grew delicious watermelons.', exampleVi: 'An Tiêm trồng những quả dưa hấu thơm ngon.' },
-      { id: 'u14v2', word: 'seed', ipa: '/siːd/', pos: 'n', meaning: 'hạt giống', example: 'He found some black seeds.', exampleVi: 'Anh ấy tìm thấy vài hạt đen.' },
-      { id: 'u14v3', word: 'exchange', ipa: '/ɪksˈtʃeɪndʒ/', pos: 'v', meaning: 'trao đổi', example: 'They exchanged watermelons for food and drink.', exampleVi: 'Họ đổi dưa hấu lấy đồ ăn và thức uống.' },
-      { id: 'u14v4', word: 'island', ipa: '/ˈaɪlənd/', pos: 'n', meaning: 'hòn đảo', example: 'King Hung ordered An Tiem to live on an island.', exampleVi: 'Vua Hùng ra lệnh cho An Tiêm ra sống ngoài đảo.' },
-      { id: 'u14v5', word: 'prince', ipa: '/prɪns/', pos: 'n', meaning: 'hoàng tử', example: 'The prince saved the princess.', exampleVi: 'Hoàng tử đã cứu công chúa.' },
-      { id: 'u14v6', word: 'princess', ipa: '/ˌprɪnˈses/', pos: 'n', meaning: 'công chúa', example: 'The princess lived in a castle.', exampleVi: 'Công chúa sống trong một tòa lâu đài.' },
-      { id: 'u14v7', word: 'greedy', ipa: '/ˈɡriːdi/', pos: 'adj', meaning: 'tham lam', example: 'The older brother was very greedy.', exampleVi: 'Người anh trai rất tham lam.' },
-      { id: 'u14v8', word: 'honest', ipa: '/ˈɒnɪst/', pos: 'adj', meaning: 'thật thà, trung thực', example: 'The younger brother was honest and kind.', exampleVi: 'Người em trai thật thà và tốt bụng.', memoryTip: 'Chữ "h" đầu từ honest bị câm, đọc là /ˈɒnɪst/!' },
-      { id: 'u14v9', word: 'wise', ipa: '/waɪz/', pos: 'adj', meaning: 'thông thái, khôn ngoan', example: 'The hare was not wise.', exampleVi: 'Chú Thỏ không hề khôn ngoan.' },
-      { id: 'u14v10', word: 'stupid', ipa: '/ˈstjuːpɪd/', pos: 'adj', meaning: 'ngốc nghếch', example: 'The crow was stupid to drop the meat.', exampleVi: 'Con quạ thật ngốc khi làm rơi miếng thịt.' },
-      { id: 'u14v11', word: 'crow', ipa: '/krəʊ/', pos: 'n', meaning: 'con quạ', example: 'The Fox tricked the Crow.', exampleVi: 'Con Cáo đã lừa con Quạ.' },
-      { id: 'u14v12', word: 'tortoise', ipa: '/ˈtɔːtəs/', pos: 'n', meaning: 'con rùa', example: 'The tortoise won the race.', exampleVi: 'Chú Rùa đã thắng cuộc đua.' },
-    ],
+    vocab: [...U14_VOCAB_PAGE104, ...U14_VOCAB_PAGE105, ...U14_VOCAB_PAGE106].map((w, idx) => ({
+      id: `u14v${idx + 1}`,
+      word: w.word,
+      ipa: w.ipa,
+      pos: w.pos,
+      meaning: w.meaning,
+      example: w.example,
+      exampleVi: w.exampleVi,
+      memoryTip: w.tip,
+    })),
     grammar: [
       {
         id: 'u14g1',
@@ -372,20 +373,16 @@ export const UNITS_11_TO_15: UnitData[] = [
     themeColor: '#0284C7',
     pdfPageStart: 111,
     goal: 'Gọi tên các nghề nghiệp mơ ước và giải thích lý do với "would like to be".',
-    vocab: [
-      { id: 'u15v1', word: 'pilot', ipa: '/ˈpaɪlət/', pos: 'n', meaning: 'phi công', example: "I'd like to be a pilot.", exampleVi: 'Mình muốn trở thành phi công.' },
-      { id: 'u15v2', word: 'architect', ipa: '/ˈɑːkɪtekt/', pos: 'n', meaning: 'kiến trúc sư', example: "He'd like to be an architect.", exampleVi: 'Bạn ấy muốn làm kiến trúc sư.', memoryTip: 'Bắt đầu bằng nguyên âm a nên dùng "an architect".' },
-      { id: 'u15v3', word: 'writer', ipa: '/ˈraɪtə(r)/', pos: 'n', meaning: 'nhà văn', example: "She'd like to be a writer.", exampleVi: 'Bạn ấy muốn trở thành nhà văn.' },
-      { id: 'u15v4', word: 'doctor', ipa: '/ˈdɒktə(r)/', pos: 'n', meaning: 'bác sĩ', example: 'A doctor looks after patients.', exampleVi: 'Bác sĩ chăm sóc bệnh nhân.' },
-      { id: 'u15v5', word: 'nurse', ipa: '/nɜːs/', pos: 'n', meaning: 'y tá', example: 'My sister is a kind nurse.', exampleVi: 'Chị mình là một cô y tá tốt bụng.' },
-      { id: 'u15v6', word: 'astronaut', ipa: '/ˈæstrənɔːt/', pos: 'n', meaning: 'phi hành gia', example: 'I want to fly a spaceship like an astronaut.', exampleVi: 'Mình muốn lái tàu vũ trụ như phi hành gia.' },
-      { id: 'u15v7', word: 'engineer', ipa: '/ˌendʒɪˈnɪə(r)/', pos: 'n', meaning: 'kỹ sư', example: 'My father is an engineer.', exampleVi: 'Bố mình là kỹ sư.' },
-      { id: 'u15v8', word: 'fly a plane', ipa: '/flaɪ ə pleɪn/', pos: 'v', meaning: 'lái máy bay', example: "I'd like to fly a plane.", exampleVi: 'Mình muốn lái máy bay.' },
-      { id: 'u15v9', word: 'design buildings', ipa: '/dɪˈzaɪn ˈbɪldɪŋz/', pos: 'v', meaning: 'thiết kế tòa nhà', example: 'Architects design beautiful buildings.', exampleVi: 'Kiến trúc sư thiết kế những tòa nhà đẹp.' },
-      { id: 'u15v10', word: 'look after patients', ipa: '/lʊk ˈɑːftə ˈpeɪʃnts/', pos: 'v', meaning: 'chăm sóc bệnh nhân', example: "She'd like to look after patients.", exampleVi: 'Bạn ấy muốn chăm sóc bệnh nhân.' },
-      { id: 'u15v11', word: 'teach young children', ipa: '/tiːtʃ jʌŋ ˈtʃɪldrən/', pos: 'v', meaning: 'dạy học cho trẻ nhỏ', example: "I'd like to teach young children.", exampleVi: 'Mình muốn dạy các em nhỏ.' },
-      { id: 'u15v12', word: 'future', ipa: '/ˈfjuːtʃə(r)/', pos: 'n', meaning: 'tương lai', example: 'What would you like to be in the future?', exampleVi: 'Bạn muốn làm nghề gì trong tương lai?' },
-    ],
+    vocab: [...U15_VOCAB_PAGE111, ...U15_VOCAB_PAGE112].map((w, idx) => ({
+      id: `u15v${idx + 1}`,
+      word: w.word,
+      ipa: w.ipa,
+      pos: w.pos,
+      meaning: w.meaning,
+      example: w.example,
+      exampleVi: w.exampleVi,
+      memoryTip: w.tip,
+    })),
     grammar: [
       {
         id: 'u15g1',

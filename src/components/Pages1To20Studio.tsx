@@ -51,10 +51,15 @@ import {
 } from '../data/pages1to20Data';
 import { PAGES_21_TO_41_INDEX } from '../data/pages21to41Data';
 import { PAGES_42_TO_62_INDEX } from '../data/pages42to62Data';
+import { PAGES_63_TO_83_INDEX } from '../data/pages63to83Data';
+import { PAGES_84_TO_104_INDEX } from '../data/pages84to104Data';
+import { PAGES_105_TO_125_INDEX } from '../data/pages105to125Data';
+import { PAGES_126_TO_146_INDEX } from '../data/pages126to146Data';
 import {
-  PAGES_63_TO_83_INDEX,
-  PageMeta83,
-} from '../data/pages63to83Data';
+  PAGES_147_TO_167_INDEX,
+  type PageMeta167,
+} from '../data/pages147to167Data';
+import { PAGES_168_TO_177_INDEX } from '../data/pages168to177Data';
 import { playFeedbackTone, speakEnglish } from '../utils/speech';
 import {
   ChoiceExerciseBlock,
@@ -68,6 +73,11 @@ import {
 import { Pages21To41View } from './Pages21To41View';
 import { Pages42To62View } from './Pages42To62View';
 import { Pages63To83View } from './Pages63To83View';
+import { Pages84To104View } from './Pages84To104View';
+import { Pages105To125View } from './Pages105To125View';
+import { Pages126To146View } from './Pages126To146View';
+import { Pages147To167View } from './Pages147To167View';
+import { Pages168To177View } from './Pages168To177View';
 import {
   CalendarCheckVisual,
   FrequencyPositionDiagram,
@@ -83,15 +93,20 @@ interface Pages1To20StudioProps {
   muted: boolean;
 }
 
-const ALL_PAGES_INDEX: PageMeta83[] = [
+const ALL_PAGES_INDEX: PageMeta167[] = [
   ...PAGES_1_TO_20_INDEX,
   ...PAGES_21_TO_41_INDEX,
   ...PAGES_42_TO_62_INDEX,
   ...PAGES_63_TO_83_INDEX,
+  ...PAGES_84_TO_104_INDEX,
+  ...PAGES_105_TO_125_INDEX,
+  ...PAGES_126_TO_146_INDEX,
+  ...PAGES_147_TO_167_INDEX,
+  ...PAGES_168_TO_177_INDEX,
 ];
 
 const CHAPTER_GROUPS = [
-  { id: 'all', label: 'Trang 1–83', pages: Array.from({ length: 83 }, (_, i) => i + 1) },
+  { id: 'all', label: 'Trang 1–177', pages: Array.from({ length: 177 }, (_, i) => i + 1) },
   { id: 'u1', label: 'Unit 1 (2–9)', pages: [2, 3, 4, 5, 6, 7, 8, 9] },
   { id: 'u2', label: 'Unit 2 (10–17)', pages: [10, 11, 12, 13, 14, 15, 16, 17] },
   { id: 'u3', label: 'Unit 3 (18–24)', pages: [18, 19, 20, 21, 22, 23, 24] },
@@ -102,7 +117,18 @@ const CHAPTER_GROUPS = [
   { id: 'u8', label: 'Unit 8 (54–60)', pages: [54, 55, 56, 57, 58, 59, 60] },
   { id: 'u9', label: 'Unit 9 (61–68)', pages: [61, 62, 63, 64, 65, 66, 67, 68] },
   { id: 'u10', label: 'Unit 10 (69–78)', pages: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78] },
-  { id: 'u11', label: 'Unit 11 (78–83)', pages: [78, 79, 80, 81, 82, 83] },
+  { id: 'u11', label: 'Unit 11 (78–87)', pages: [78, 79, 80, 81, 82, 83, 84, 85, 86, 87] },
+  { id: 'u12', label: 'Unit 12 (88–97)', pages: [88, 89, 90, 91, 92, 93, 94, 95, 96, 97] },
+  { id: 'u13', label: 'Unit 13 (97–103)', pages: [97, 98, 99, 100, 101, 102, 103] },
+  { id: 'u14', label: 'Unit 14 (104–110)', pages: [104, 105, 106, 107, 108, 109, 110] },
+  { id: 'u15', label: 'Unit 15 (111–117)', pages: [111, 112, 113, 114, 115, 116, 117] },
+  { id: 'u16', label: 'Unit 16 (118–125)', pages: [118, 119, 120, 121, 122, 123, 124, 125] },
+  { id: 'u17', label: 'Unit 17 (126–133)', pages: [126, 127, 128, 129, 130, 131, 132, 133] },
+  { id: 'u18', label: 'Unit 18 (134–143)', pages: [134, 135, 136, 137, 138, 139, 140, 141, 142, 143] },
+  { id: 'u19', label: 'Unit 19 (143–149)', pages: [143, 144, 145, 146, 147, 148, 149] },
+  { id: 'u20', label: 'Unit 20 (150–158)', pages: [150, 151, 152, 153, 154, 155, 156, 157, 158] },
+  { id: 'keys1', label: 'Đáp án U1–U11 (158–167)', pages: [158, 159, 160, 161, 162, 163, 164, 165, 166, 167] },
+  { id: 'keys2', label: 'Đáp án U11–U20 (168–177)', pages: [168, 169, 170, 171, 172, 173, 174, 175, 176, 177] },
 ];
 
 const PAST_VERB_PAIRS = [
@@ -167,7 +193,7 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
     CHAPTER_GROUPS.find((c) => c.id === chapterFilter)?.pages ?? CHAPTER_GROUPS[0].pages;
 
   const goToPage = (p: number) => {
-    const clamped = Math.max(1, Math.min(83, p));
+    const clamped = Math.max(1, Math.min(177, p));
     setActivePage(clamped);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -261,7 +287,7 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
           <div className="space-y-1">
             <p className="text-xs font-bold uppercase tracking-wider text-sky-700">
-              Trang {activePage} / 83 · {pageMeta.sectionTag}
+              Trang {activePage} / 177 · {pageMeta.sectionTag}
             </p>
             <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
               {pageMeta.title}
@@ -331,6 +357,26 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
                   ? 'border-rose-200 text-rose-800 hover:bg-rose-50'
                   : meta.unit === 11
                   ? 'border-pink-200 text-pink-900 hover:bg-pink-50'
+                  : meta.unit === 12
+                  ? 'border-amber-200 text-amber-900 hover:bg-amber-50'
+                  : meta.unit === 13
+                  ? 'border-sky-200 text-sky-900 hover:bg-sky-50'
+                  : meta.unit === 14
+                  ? 'border-emerald-200 text-emerald-900 hover:bg-emerald-50'
+                  : meta.unit === 15
+                  ? 'border-sky-200 text-sky-900 hover:bg-sky-50'
+                  : meta.unit === 16
+                  ? 'border-indigo-200 text-indigo-900 hover:bg-indigo-50'
+                  : meta.unit === 17
+                  ? 'border-amber-200 text-amber-900 hover:bg-amber-50'
+                  : meta.unit === 18
+                  ? 'border-sky-200 text-sky-900 hover:bg-sky-50'
+                  : meta.unit === 19
+                  ? 'border-emerald-200 text-emerald-900 hover:bg-emerald-50'
+                  : meta.unit === 20
+                  ? 'border-teal-200 text-teal-900 hover:bg-teal-50'
+                  : meta.unit === 99
+                  ? 'border-violet-200 text-violet-900 hover:bg-violet-50'
                   : 'border-slate-200 text-slate-700 hover:bg-slate-50';
 
               return (
@@ -353,7 +399,7 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
 
           <button
             type="button"
-            disabled={activePage >= 83}
+            disabled={activePage >= 177}
             onClick={() => goToPage(activePage + 1)}
             className="p-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-35 cursor-pointer disabled:cursor-not-allowed shrink-0"
             aria-label="Trang tiếp theo"
@@ -377,10 +423,10 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
                   Sách Luyện chuyên sâu Ngữ pháp & Từ vựng Tiếng Anh Lớp 5 · Tập 1
                 </p>
                 <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Bản đồ học trọn vẹn Trang 1 → Trang 83
+                  Bản đồ học trọn bộ 100% cuốn sách: Trang 1 → Trang 177
                 </h2>
                 <p className="text-sm sm:text-base text-slate-600 max-w-2xl">
-                  Mỗi trang sách đã được chuyển hóa thành thẻ từ vựng có âm thanh hai tốc độ, sơ đồ ngữ pháp trực quan và toàn bộ bài tập tương tác chấm điểm ngay lập tức.
+                  Hoàn chỉnh toàn bộ <strong>20/20 Unit Lớp 5</strong> và <strong>Kho Đáp án chuẩn Unit 1 → Unit 20</strong> (đến Trang 177 cuối sách): mỗi trang có thẻ từ vựng hai tốc độ, sơ đồ ngữ pháp trực quan, mẹo ghi nhớ nhanh và bài tập chấm điểm tức thì.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 shrink-0 self-start">
@@ -394,10 +440,10 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
                 </button>
                 <button
                   type="button"
-                  onClick={() => goToPage(63)}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold cursor-pointer"
+                  onClick={() => goToPage(168)}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-sm font-bold cursor-pointer"
                 >
-                  Học ngay Trang 63–83
+                  Xem Trang 168–177 & Tổng ôn
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -634,18 +680,18 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
                 </button>
               </div>
 
-              {/* Unit 11 Card */}
+              {/* Unit 11 Full Card */}
               <div className="rounded-2xl border border-pink-200 bg-pink-50/50 p-5 flex flex-col justify-between gap-4">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-extrabold text-pink-800 uppercase">Trang 78 – 83</span>
+                    <span className="text-xs font-extrabold text-pink-800 uppercase">Trang 78 – 87</span>
                     <MiniPictureIcon iconKey="fever" className="w-11 h-11" />
                   </div>
                   <h3 className="font-display font-bold text-lg text-slate-900">
                     Unit 11: What’s the matter with you?
                   </h3>
                   <p className="text-sm text-slate-700">
-                    <strong>33 từ vựng</strong> sức khỏe & bệnh lý · <strong>Phòng khám Bác sĩ tương tác</strong> (should / shouldn’t) · <strong>Task 1–5</strong> (18 câu lời khuyên, bé May đau răng, 27 từ chính tả).
+                    <strong>33 từ vựng</strong> sức khỏe & bệnh lý · <strong>Phòng khám Bác sĩ tương tác</strong> · Trọn bộ <strong>Task 1–11</strong> (sửa 18 lỗi sai, bé Sam, bạn Jim & viết lời khuyên).
                   </p>
                 </div>
                 <button
@@ -656,13 +702,252 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
                   Học Unit 11 (Trang 78)
                 </button>
               </div>
+
+              {/* Unit 12 Full Card */}
+              <div className="rounded-2xl border border-amber-200 bg-amber-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-amber-800 uppercase">Trang 88 – 97</span>
+                    <MiniPictureIcon iconKey="knife" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Unit 12: Don’t ride your bike too fast!
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    <strong>32 từ vựng</strong> an toàn trong nhà · <strong>Trạm Mô phỏng An toàn</strong> · Phân biệt <strong>maybe / may be</strong> · Trọn bộ <strong>Task 1–11</strong> (Mike, chia 8 động từ, đổi mệnh lệnh).
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => goToPage(88)}
+                  className="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold cursor-pointer"
+                >
+                  Học Unit 12 (Trang 88)
+                </button>
+              </div>
+
+              {/* Unit 13 Full Card */}
+              <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-sky-800 uppercase">Trang 97 – 103</span>
+                    <MiniPictureIcon iconKey="fishing" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Unit 13: What do you do in your free time?
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    <strong>26 từ vựng</strong> giải trí · <strong>Xưởng Sở thích Gia đình</strong> · Trò chơi <strong>xóa chữ cái thừa</strong> · Trọn bộ <strong>Task 1–8</strong> (Câu cá cùng Bố, Kỳ nghỉ hè).
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => goToPage(97)}
+                  className="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-sm font-semibold cursor-pointer"
+                >
+                  Học Unit 13 (Trang 97)
+                </button>
+              </div>
+
+              {/* Unit 14 Full Card */}
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-emerald-800 uppercase">Trang 104 – 110</span>
+                    <MiniPictureIcon iconKey="watermelon" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Unit 14: What happened in the story?
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    <strong>48 từ vựng</strong> cổ tích · <strong>Xưởng bình luận nhân vật</strong> · Bảng đổi 10 động từ quá khứ · Trọn bộ <strong>Task 1–9</strong> (Cây khế, Thỏ & Rùa, kho 14 từ).
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => goToPage(104)}
+                  className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold cursor-pointer"
+                >
+                  Học Unit 14 (Trang 104)
+                </button>
+              </div>
+
+              {/* Unit 15 Full Card */}
+              <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-sky-800 uppercase">Trang 111 – 117</span>
+                    <MiniPictureIcon iconKey="pilot" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Unit 15: What would you like to be in the future?
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    <strong>35 từ vựng</strong> nghề nghiệp & vũ trụ · <strong>Xưởng khám phá 6 nghề mơ ước</strong> (a/an + Why–Because) · Trọn bộ <strong>Task 1–9</strong> (Thư Jim, sửa 5 lỗi sai, trường của Lê).
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => goToPage(111)}
+                  className="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-sm font-semibold cursor-pointer"
+                >
+                  Học Unit 15 (Trang 111)
+                </button>
+              </div>
+
+              {/* Unit 16 Full Card */}
+              <div className="rounded-2xl border border-indigo-200 bg-indigo-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-indigo-800 uppercase">Trang 118 – 125</span>
+                    <MiniPictureIcon iconKey="postoffice" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Unit 16: Where is the post office?
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    <strong>28 từ vựng</strong> địa điểm & chỉ đường · <strong>Bản đồ khu phố tương tác</strong> · Hệ thống giới từ + <strong>can</strong> · Trọn bộ <strong>Task 1–8</strong> (Đường tới trường, Đảo Côn Đảo).
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => goToPage(118)}
+                  className="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold cursor-pointer"
+                >
+                  Học Unit 16 (Trang 118)
+                </button>
+              </div>
+
+              {/* Unit 17 Full Card */}
+              <div className="rounded-2xl border border-amber-200 bg-amber-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-amber-800 uppercase">Trang 126 – 133</span>
+                    <MiniPictureIcon iconKey="bowl" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Unit 17: What would you like to eat?
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    <strong>28 từ vựng</strong> đồ ăn & đơn vị đựng · <strong>Xưởng gọi món Căng tin</strong> · Sơ đồ <strong>How much / How many</strong> · Trọn bộ <strong>Task 1–10</strong>.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => goToPage(126)}
+                  className="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold cursor-pointer"
+                >
+                  Học Unit 17 (Trang 126)
+                </button>
+              </div>
+
+              {/* Unit 18 Full Card */}
+              <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-sky-800 uppercase">Trang 134 – 143</span>
+                    <MiniPictureIcon iconKey="forecast" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Unit 18: What will the weather be like tomorrow?
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    <strong>28 từ vựng</strong> thời tiết & 4 mùa · <strong>Trạm Dự báo Thời tiết Việt Nam</strong> · Công thức <strong>will be</strong> · Trọn bộ <strong>Task 1–10</strong>.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => goToPage(134)}
+                  className="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-sm font-semibold cursor-pointer"
+                >
+                  Học Unit 18 (Trang 134)
+                </button>
+              </div>
+
+              {/* Unit 19 Full Card */}
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-emerald-800 uppercase">Trang 143 – 149</span>
+                    <MiniPictureIcon iconKey="pagoda" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Unit 19: Which place would you like to visit?
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    <strong>28 từ vựng</strong> danh thắng Việt Nam · <strong>Xưởng Danh thắng & So sánh hơn</strong> · Trọn bộ <strong>Task 1–9</strong> (Phú Quốc, Bái Đính, TP.HCM, Đền Hoa Lư).
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => goToPage(143)}
+                  className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold cursor-pointer"
+                >
+                  Học Unit 19 (Trang 143)
+                </button>
+              </div>
+
+              {/* Unit 20 Full Card */}
+              <div className="rounded-2xl border border-teal-200 bg-teal-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-teal-800 uppercase">Trang 150 – 158</span>
+                    <MiniPictureIcon iconKey="paris" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Unit 20: Life in the city or life in the countryside?
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    <strong>25 từ vựng đồng bộ</strong> · <strong>Đấu trường Thành phố vs. Nông thôn</strong> · Sơ đồ 4 quy tắc So sánh hơn & Ngữ điệu <strong>or</strong> · Trọn bộ <strong>Task 1–12</strong>.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => goToPage(150)}
+                  className="w-full py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold cursor-pointer"
+                >
+                  Học Unit 20 (Trang 150)
+                </button>
+              </div>
+
+              {/* Answer Key Vault Card */}
+              <div className="rounded-2xl border border-violet-200 bg-violet-50/50 p-5 flex flex-col justify-between gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-extrabold text-violet-800 uppercase">Trang 158 – 177</span>
+                    <MiniPictureIcon iconKey="book" className="w-11 h-11" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900">
+                    Kho Đáp án Chuẩn Unit 1 → Unit 20 & Tổng kết Trang 177
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    Đầy đủ đáp án 100% cuốn sách, bấm loa nghe lại câu mẫu, Mẹo ghi nhớ siêu tốc theo trang, Bản đồ Học kỳ 2 và Thử thách 10 câu cuối sách.
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => goToPage(158)}
+                    className="py-2.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-xs sm:text-sm font-semibold cursor-pointer"
+                  >
+                    Đáp án HK1 (158)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => goToPage(168)}
+                    className="py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-semibold cursor-pointer"
+                  >
+                    Đáp án HK2 (168)
+                  </button>
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* Compact 83-page directory */}
+          {/* Compact 177-page directory */}
           <section className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 space-y-4">
             <h3 className="font-display font-bold text-lg text-slate-900">
-              Mục lục nhanh từng trang (Trang 1 – Trang 83)
+              Mục lục nhanh từng trang (Trang 1 – Trang 177 · 100% sách)
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {ALL_PAGES_INDEX.map((item) => (
@@ -2076,11 +2361,63 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
       )}
 
       {/* PAGES 63 -> 83 DELEGATED VIEW */}
-      {activePage >= 63 && (
+      {activePage >= 63 && activePage <= 83 && (
         <Pages63To83View
           activePage={activePage}
           completedTaskIds={completedTaskIds}
           onCompleteTask={onCompleteTask}
+          muted={muted}
+        />
+      )}
+
+      {/* PAGES 84 -> 104 DELEGATED VIEW */}
+      {activePage >= 84 && activePage <= 104 && (
+        <Pages84To104View
+          activePage={activePage}
+          completedTaskIds={completedTaskIds}
+          onCompleteTask={onCompleteTask}
+          muted={muted}
+        />
+      )}
+
+      {/* PAGES 105 -> 125 DELEGATED VIEW */}
+      {activePage >= 105 && activePage <= 125 && (
+        <Pages105To125View
+          activePage={activePage}
+          completedTaskIds={completedTaskIds}
+          onCompleteTask={onCompleteTask}
+          muted={muted}
+        />
+      )}
+
+      {/* PAGES 126 -> 146 DELEGATED VIEW */}
+      {activePage >= 126 && activePage <= 146 && (
+        <Pages126To146View
+          activePage={activePage}
+          completedTaskIds={completedTaskIds}
+          onCompleteTask={onCompleteTask}
+          muted={muted}
+        />
+      )}
+
+      {/* PAGES 147 -> 167 DELEGATED VIEW */}
+      {activePage >= 147 && activePage <= 167 && (
+        <Pages147To167View
+          activePage={activePage}
+          completedTaskIds={completedTaskIds}
+          onCompleteTask={onCompleteTask}
+          onJumpToPage={goToPage}
+          muted={muted}
+        />
+      )}
+
+      {/* PAGES 168 -> 177 DELEGATED VIEW (FINAL 10 PAGES OF THE BOOK) */}
+      {activePage >= 168 && (
+        <Pages168To177View
+          activePage={activePage}
+          completedTaskIds={completedTaskIds}
+          onCompleteTask={onCompleteTask}
+          onJumpToPage={goToPage}
           muted={muted}
         />
       )}
@@ -2099,16 +2436,16 @@ export const Pages1To20Studio: React.FC<Pages1To20StudioProps> = ({
 
         <span className="text-xs font-bold text-slate-500 tabular-nums hidden sm:inline-flex items-center gap-1.5">
           <BookOpen className="w-4 h-4 text-sky-600" />
-          Trang {activePage} / 83
+          Trang {activePage} / 177
         </span>
 
         <button
           type="button"
-          disabled={activePage >= 83}
+          disabled={activePage >= 177}
           onClick={() => goToPage(activePage + 1)}
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 disabled:opacity-40 text-sm font-semibold text-white cursor-pointer disabled:cursor-not-allowed"
         >
-          Trang tiếp {activePage < 83 ? `(Tr. ${activePage + 1})` : ''}
+          Trang tiếp {activePage < 177 ? `(Tr. ${activePage + 1})` : ''}
           <ChevronRight className="w-4 h-4" />
         </button>
       </div>
