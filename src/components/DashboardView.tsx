@@ -83,7 +83,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 onClick={onOpenPages1To20}
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm sm:text-base transition-colors shadow-sm cursor-pointer"
               >
-                Học chi tiết Trang 1–177
+                Học chi tiết Trang 1–83
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
@@ -138,17 +138,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
       </section>
 
-      {/* Featured Pages 1–177 Detailed Studio Banner */}
+      {/* Featured Pages 1–83 Detailed Studio Banner */}
       <section className="bg-sky-50/70 border border-sky-200 rounded-3xl p-5 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="space-y-1">
           <p className="text-xs font-bold uppercase tracking-wider text-sky-700">
-            Hoàn thiện 100% cuốn sách · 20/20 Unit & Đáp án Unit 1–20
+            Mới cập nhật trọn bộ từng trang · Unit 1 → Unit 10 & trọng tâm Unit 11
           </p>
           <h2 className="font-display text-xl sm:text-2xl font-extrabold text-slate-900">
-            Chế độ học từng trang trực quan: Trang 1 → Trang 177
+            Chế độ học từng trang trực quan: Trang 1 → Trang 83
           </h2>
           <p className="text-sm text-slate-700">
-            Đầy đủ 578 từ vựng phát âm hai tốc độ, sơ đồ ngữ pháp trực quan cả 20 Unit, Kho Đáp án chuẩn Unit 1–20 có Mẹo ghi nhớ siêu tốc từng trang, Bản đồ Tổng ôn Học kỳ 2 và Thử thách 10 câu cuối sách ở Trang 177.
+            Đầy đủ 300 từ vựng phát âm hai tốc độ, xưởng lập kế hoạch Ngày hội Thể thao (be going to), Phòng khám Bác sĩ tương tác (should / shouldn’t), lịch Sở thú & toàn bộ bài tập chấm điểm trực tiếp.
           </p>
         </div>
         <button
@@ -156,7 +156,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           onClick={onOpenPages1To20}
           className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold whitespace-nowrap transition-colors shadow-xs cursor-pointer shrink-0"
         >
-          Mở học từng trang (Tr. 1–177)
+          Mở học từng trang (Tr. 1–83)
           <ArrowRight className="w-4 h-4" />
         </button>
       </section>
