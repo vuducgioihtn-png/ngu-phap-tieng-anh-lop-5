@@ -1,0 +1,6 @@
+{
+  "name": "BrightStep 5 — Học Tiếng Anh Lớp 5",
+  "description": "Ứng dụng học Tiếng Anh Lớp 5 trực quan, sinh động gồm 20 bài học (Unit 1–20) theo chương trình chuyên sâu: thẻ từ vựng phát âm chuẩn, mô hình ghép câu ngữ pháp tương tác, bài tập thực hành và đấu trường IOE / Trạng Nguyên Tiếng Anh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
