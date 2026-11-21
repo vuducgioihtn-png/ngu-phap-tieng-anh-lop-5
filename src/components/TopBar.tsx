@@ -12,7 +12,7 @@ interface TopBarProps {
 
 const NAV_ITEMS: { id: AppSection; label: string }[] = [
   { id: 'dashboard', label: 'Lộ trình 20 bài' },
-  { id: 'pages1to20', label: 'Chi tiết Tr. 1–83' },
+  { id: 'pages1to20', label: 'Chi tiết Tr. 1–177' },
   { id: 'vocab', label: 'Từ vựng' },
   { id: 'ioe', label: 'Luyện thi IOE' },
   { id: 'pdf', label: 'Sách PDF' },

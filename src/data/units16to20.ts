@@ -1,4 +1,15 @@
 import type { UnitData } from '../types/curriculum';
+import { U16_VOCAB_PAGE118, U16_VOCAB_PAGE119 } from './pages105to125Data';
+import {
+  U17_VOCAB_PAGE126,
+  U17_VOCAB_PAGE127,
+  U18_VOCAB_PAGE134,
+  U18_VOCAB_PAGE135,
+  U19_VOCAB_PAGE143,
+  U19_VOCAB_PAGE144,
+  U19_VOCAB_PAGE145,
+} from './pages126to146Data';
+import { U20_VOCAB_SYNC_25 } from './pages147to167Data';
 
 export const UNITS_16_TO_20: UnitData[] = [
   {
@@ -9,20 +20,16 @@ export const UNITS_16_TO_20: UnitData[] = [
     themeColor: '#0284C7',
     pdfPageStart: 118,
     goal: 'Hỏi vị trí địa điểm trong thành phố bằng giới từ chỉ nơi chốn và chỉ đường ngắn gọn, rõ ràng.',
-    vocab: [
-      { id: 'u16v1', word: 'post office', ipa: '/ˈpəʊst ɒfɪs/', pos: 'n', meaning: 'bưu điện', example: 'The post office is opposite the stadium.', exampleVi: 'Bưu điện nằm đối diện sân vận động.' },
-      { id: 'u16v2', word: 'bus stop', ipa: '/ˈbʌs stɒp/', pos: 'n', meaning: 'trạm xe buýt', example: 'The bus stop is next to the stadium.', exampleVi: 'Trạm xe buýt ở cạnh sân vận động.' },
-      { id: 'u16v3', word: 'pharmacy', ipa: '/ˈfɑːməsi/', pos: 'n', meaning: 'hiệu thuốc', example: 'There is a pharmacy near my house.', exampleVi: 'Có một hiệu thuốc gần nhà mình.' },
-      { id: 'u16v4', word: 'theatre', ipa: '/ˈθɪətə(r)/', pos: 'n', meaning: 'nhà hát', example: 'The theatre is between the cinema and the supermarket.', exampleVi: 'Nhà hát nằm giữa rạp chiếu phim và siêu thị.' },
-      { id: 'u16v5', word: 'museum', ipa: '/mjuˈziːəm/', pos: 'n', meaning: 'bảo tàng', example: 'How can I get to the museum?', exampleVi: 'Mình đến bảo tàng bằng cách nào?' },
-      { id: 'u16v6', word: 'opposite', ipa: '/ˈɒpəzɪt/', pos: 'prep', meaning: 'đối diện', example: 'The cinema is opposite the park.', exampleVi: 'Rạp chiếu phim đối diện công viên.' },
-      { id: 'u16v7', word: 'between', ipa: '/bɪˈtwiːn/', pos: 'prep', meaning: 'ở giữa (hai vật)', example: 'The bookshop is between the bakery and the pharmacy.', exampleVi: 'Hiệu sách nằm giữa tiệm bánh và hiệu thuốc.' },
-      { id: 'u16v8', word: 'on the corner', ipa: '/ɒn ðə ˈkɔːnə(r)/', pos: 'prep', meaning: 'ở góc đường', example: 'The supermarket is on the corner of the street.', exampleVi: 'Siêu thị nằm ở góc phố.' },
-      { id: 'u16v9', word: 'go straight ahead', ipa: '/ɡəʊ streɪt əˈhed/', pos: 'v', meaning: 'đi thẳng về phía trước', example: 'Go straight ahead and turn left.', exampleVi: 'Đi thẳng rồi rẽ trái.' },
-      { id: 'u16v10', word: 'turn left', ipa: '/tɜːn left/', pos: 'v', meaning: 'rẽ trái', example: 'Turn left at the corner.', exampleVi: 'Rẽ trái ở góc đường.' },
-      { id: 'u16v11', word: 'turn right', ipa: '/tɜːn raɪt/', pos: 'v', meaning: 'rẽ phải', example: 'Turn right at the traffic lights.', exampleVi: 'Rẽ phải ở đèn giao thông.' },
-      { id: 'u16v12', word: 'at the end of', ipa: '/æt ði end əv/', pos: 'prep', meaning: 'ở cuối con đường', example: 'The park is at the end of the street.', exampleVi: 'Công viên nằm ở cuối phố.' },
-    ],
+    vocab: [...U16_VOCAB_PAGE118, ...U16_VOCAB_PAGE119].map((w, idx) => ({
+      id: `u16v${idx + 1}`,
+      word: w.word,
+      ipa: w.ipa,
+      pos: w.pos,
+      meaning: w.meaning,
+      example: w.example,
+      exampleVi: w.exampleVi,
+      memoryTip: w.tip,
+    })),
     grammar: [
       {
         id: 'u16g1',
@@ -102,20 +109,16 @@ export const UNITS_16_TO_20: UnitData[] = [
     themeColor: '#D97706',
     pdfPageStart: 126,
     goal: 'Gọi món ăn, đồ uống kèm đơn vị đo lường (bowl, packet, bar, carton, bottle, glass) và hỏi số lượng với How much / How many.',
-    vocab: [
-      { id: 'u17v1', word: 'a bowl of noodles', ipa: '/ə bəʊl əv ˈnuːdlz/', pos: 'n', meaning: 'một bát mì', example: "I'd like a bowl of noodles.", exampleVi: 'Mình muốn một bát mì.' },
-      { id: 'u17v2', word: 'a packet of biscuits', ipa: '/ə ˈpækɪt əv ˈbɪskɪts/', pos: 'n', meaning: 'một gói bánh quy', example: 'She ate a packet of biscuits.', exampleVi: 'Bạn ấy đã ăn một gói bánh quy.' },
-      { id: 'u17v3', word: 'a bar of chocolate', ipa: '/ə bɑːr əv ˈtʃɒklət/', pos: 'n', meaning: 'một thanh sô-cô-la', example: 'He wants a bar of chocolate.', exampleVi: 'Cậu ấy muốn một thanh sô-cô-la.' },
-      { id: 'u17v4', word: 'a glass of orange juice', ipa: '/ə ɡlɑːs əv ˈɒrɪndʒ dʒuːs/', pos: 'n', meaning: 'một cốc nước cam', example: "I'd like a glass of orange juice.", exampleVi: 'Mình muốn một cốc nước cam.' },
-      { id: 'u17v5', word: 'a carton of lemonade', ipa: '/ə ˈkɑːtn əv ˌleməˈneɪd/', pos: 'n', meaning: 'một hộp nước chanh', example: 'Can I have a carton of lemonade?', exampleVi: 'Cho mình một hộp nước chanh nhé?' },
-      { id: 'u17v6', word: 'a bottle of water', ipa: '/ə ˈbɒtl əv ˈwɔːtə(r)/', pos: 'n', meaning: 'một chai nước', example: 'I drink two bottles of water every day.', exampleVi: 'Mình uống hai chai nước mỗi ngày.' },
-      { id: 'u17v7', word: 'sausage', ipa: '/ˈsɒsɪdʒ/', pos: 'n', meaning: 'xúc xích', example: 'He eats two sausages for breakfast.', exampleVi: 'Cậu ấy ăn hai chiếc xúc xích cho bữa sáng.' },
-      { id: 'u17v8', word: 'sandwich', ipa: '/ˈsænwɪtʃ/', pos: 'n', meaning: 'bánh mì kẹp', example: 'My mum makes healthy sandwiches.', exampleVi: 'Mẹ mình làm bánh mì kẹp rất bổ dưỡng.' },
-      { id: 'u17v9', word: 'rice', ipa: '/raɪs/', pos: 'n', meaning: 'cơm, gạo', example: 'How much rice do you eat every day?', exampleVi: 'Bạn ăn bao nhiêu cơm mỗi ngày?' },
-      { id: 'u17v10', word: 'banana', ipa: '/bəˈnɑːnə/', pos: 'n', meaning: 'quả chuối', example: 'How many bananas do you eat?', exampleVi: 'Bạn ăn mấy quả chuối?' },
-      { id: 'u17v11', word: 'egg', ipa: '/eɡ/', pos: 'n', meaning: 'quả trứng', example: 'I eat an egg every morning.', exampleVi: 'Mình ăn một quả trứng mỗi sáng.' },
-      { id: 'u17v12', word: 'canteen', ipa: '/kænˈtiːn/', pos: 'n', meaning: 'căn tin trường học', example: 'We have lunch at the school canteen.', exampleVi: 'Chúng mình ăn trưa ở căn tin trường.' },
-    ],
+    vocab: [...U17_VOCAB_PAGE126, ...U17_VOCAB_PAGE127].map((w, idx) => ({
+      id: `u17v${idx + 1}`,
+      word: w.word,
+      ipa: w.ipa,
+      pos: w.pos,
+      meaning: w.meaning,
+      example: w.example,
+      exampleVi: w.exampleVi,
+      memoryTip: w.tip,
+    })),
     grammar: [
       {
         id: 'u17g1',
@@ -195,20 +198,16 @@ export const UNITS_16_TO_20: UnitData[] = [
     themeColor: '#0284C7',
     pdfPageStart: 134,
     goal: 'Dự báo thời tiết ngày mai với thì tương lai (will be) và miêu tả đặc điểm bốn mùa trong năm.',
-    vocab: [
-      { id: 'u18v1', word: 'forecast', ipa: '/ˈfɔːkɑːst/', pos: 'n', meaning: 'bản tin dự báo thời tiết', example: 'I watch the weather forecast every evening.', exampleVi: 'Mình xem dự báo thời tiết mỗi tối.' },
-      { id: 'u18v2', word: 'sunny', ipa: '/ˈsʌni/', pos: 'adj', meaning: 'có nắng', example: "It'll be hot and sunny tomorrow.", exampleVi: 'Ngày mai trời sẽ nóng và có nắng.' },
-      { id: 'u18v3', word: 'cloudy', ipa: '/ˈklaʊdi/', pos: 'adj', meaning: 'nhiều mây', example: 'Today is cool and cloudy.', exampleVi: 'Hôm nay trời mát và nhiều mây.' },
-      { id: 'u18v4', word: 'windy', ipa: '/ˈwɪndi/', pos: 'adj', meaning: 'có gió', example: 'It is windy in autumn.', exampleVi: 'Mùa thu trời có gió.' },
-      { id: 'u18v5', word: 'rainy', ipa: '/ˈreɪni/', pos: 'adj', meaning: 'có mưa', example: 'Take an umbrella! It will be rainy.', exampleVi: 'Mang ô đi nhé! Trời sẽ mưa đấy.' },
-      { id: 'u18v6', word: 'stormy', ipa: '/ˈstɔːmi/', pos: 'adj', meaning: 'có bão', example: "Don't go out when it is stormy.", exampleVi: 'Đừng ra ngoài khi trời có bão.' },
-      { id: 'u18v7', word: 'snowy', ipa: '/ˈsnəʊi/', pos: 'adj', meaning: 'có tuyết rơi', example: 'Winter in Canada is cold and snowy.', exampleVi: 'Mùa đông ở Canada lạnh và có tuyết.' },
-      { id: 'u18v8', word: 'foggy', ipa: '/ˈfɒɡi/', pos: 'adj', meaning: 'có sương mù', example: 'It is foggy in the early morning.', exampleVi: 'Trời có sương mù vào sáng sớm.' },
-      { id: 'u18v9', word: 'spring', ipa: '/sprɪŋ/', pos: 'n', meaning: 'mùa xuân', example: 'It is warm in spring and there are lots of flowers.', exampleVi: 'Mùa xuân ấm áp và có rất nhiều hoa.' },
-      { id: 'u18v10', word: 'summer', ipa: '/ˈsʌmə(r)/', pos: 'n', meaning: 'mùa hè', example: 'Summer is hot and sunny.', exampleVi: 'Mùa hè nóng và nhiều nắng.' },
-      { id: 'u18v11', word: 'autumn', ipa: '/ˈɔːtəm/', pos: 'n', meaning: 'mùa thu', example: 'Autumn is cool and windy.', exampleVi: 'Mùa thu mát mẻ và có gió.' },
-      { id: 'u18v12', word: 'winter', ipa: '/ˈwɪntə(r)/', pos: 'n', meaning: 'mùa đông', example: 'Winter is very cold.', exampleVi: 'Mùa đông rất lạnh.' },
-    ],
+    vocab: [...U18_VOCAB_PAGE134, ...U18_VOCAB_PAGE135].map((w, idx) => ({
+      id: `u18v${idx + 1}`,
+      word: w.word,
+      ipa: w.ipa,
+      pos: w.pos,
+      meaning: w.meaning,
+      example: w.example,
+      exampleVi: w.exampleVi,
+      memoryTip: w.tip,
+    })),
     grammar: [
       {
         id: 'u18g1',
@@ -291,20 +290,16 @@ export const UNITS_16_TO_20: UnitData[] = [
     themeColor: '#059669',
     pdfPageStart: 143,
     goal: 'Lựa chọn giữa hai địa điểm tham quan và bày tỏ cảm nhận bất ngờ với cấu trúc "more ... than I expected".',
-    vocab: [
-      { id: 'u19v1', word: 'pagoda', ipa: '/pəˈɡəʊdə/', pos: 'n', meaning: 'ngôi chùa', example: 'I would like to visit Tran Quoc Pagoda.', exampleVi: 'Mình muốn thăm chùa Trấn Quốc.' },
-      { id: 'u19v2', word: 'temple', ipa: '/ˈtempl/', pos: 'n', meaning: 'ngôi đền', example: 'Ngoc Son Temple is in Hoan Kiem Lake.', exampleVi: 'Đền Ngọc Sơn nằm trong hồ Hoàn Kiếm.' },
-      { id: 'u19v3', word: 'bridge', ipa: '/brɪdʒ/', pos: 'n', meaning: 'cây cầu', example: 'Trang Tien Bridge is in Hue.', exampleVi: 'Cầu Tràng Tiền ở Huế.' },
-      { id: 'u19v4', word: 'statue', ipa: '/ˈstætʃuː/', pos: 'n', meaning: 'bức tượng', example: 'There is a famous statue in the park.', exampleVi: 'Có một bức tượng nổi tiếng trong công viên.' },
-      { id: 'u19v5', word: 'market', ipa: '/ˈmɑːkɪt/', pos: 'n', meaning: 'khu chợ', example: 'Ben Thanh Market is always busy.', exampleVi: 'Chợ Bến Thành lúc nào cũng nhộn nhịp.' },
-      { id: 'u19v6', word: 'attractive', ipa: '/əˈtræktɪv/', pos: 'adj', meaning: 'hấp dẫn, thu hút', example: 'Ha Long Bay is more attractive than I expected.', exampleVi: 'Vịnh Hạ Long hấp dẫn hơn mình tưởng.' },
-      { id: 'u19v7', word: 'exciting', ipa: '/ɪkˈsaɪtɪŋ/', pos: 'adj', meaning: 'thú vị, sôi động', example: 'Dam Sen Park is more exciting than I expected.', exampleVi: 'Công viên Đầm Sen sôi động hơn mình nghĩ.' },
-      { id: 'u19v8', word: 'interesting', ipa: '/ˈɪntrəstɪŋ/', pos: 'adj', meaning: 'lý thú, hấp dẫn', example: 'The History Museum is very interesting.', exampleVi: 'Bảo tàng Lịch sử rất thú vị.' },
-      { id: 'u19v9', word: 'expect', ipa: '/ɪkˈspekt/', pos: 'v', meaning: 'mong đợi, nghĩ rằng', example: 'It is bigger than I expected.', exampleVi: 'Nó lớn hơn mình tưởng.' },
-      { id: 'u19v10', word: 'history', ipa: '/ˈhɪstri/', pos: 'n', meaning: 'lịch sử', example: 'We learn history at the museum.', exampleVi: 'Chúng mình tìm hiểu lịch sử ở bảo tàng.' },
-      { id: 'u19v11', word: 'imperial city', ipa: '/ɪmˈpɪəriəl ˈsɪti/', pos: 'n', meaning: 'Hoàng thành, Kinh thành', example: 'Hue Imperial City is very famous.', exampleVi: 'Hoàng thành Huế rất nổi tiếng.' },
-      { id: 'u19v12', word: 'tourist', ipa: '/ˈtʊərɪst/', pos: 'n', meaning: 'khách du lịch', example: 'Many tourists visit Hoi An every year.', exampleVi: 'Nhiều khách du lịch đến thăm Hội An mỗi năm.' },
-    ],
+    vocab: [...U19_VOCAB_PAGE143, ...U19_VOCAB_PAGE144, ...U19_VOCAB_PAGE145].map((w, idx) => ({
+      id: `u19v${idx + 1}`,
+      word: w.word,
+      ipa: w.ipa,
+      pos: w.pos,
+      meaning: w.meaning,
+      example: w.example,
+      exampleVi: w.exampleVi,
+      memoryTip: w.tip,
+    })),
     grammar: [
       {
         id: 'u19g1',
@@ -383,20 +378,16 @@ export const UNITS_16_TO_20: UnitData[] = [
     themeColor: '#059669',
     pdfPageStart: 150,
     goal: 'So sánh hơn giữa hai địa điểm hoặc hai lối sống với cả tính từ ngắn (-er) và tính từ dài (more ...).',
-    vocab: [
-      { id: 'u20v1', word: 'bigger', ipa: '/ˈbɪɡə(r)/', pos: 'adj', meaning: 'lớn hơn', example: 'London is bigger than Sydney.', exampleVi: 'Luân Đôn lớn hơn Sydney.', memoryTip: 'big → bigger (gấp đôi chữ g trước khi thêm -er).' },
-      { id: 'u20v2', word: 'smaller', ipa: '/ˈsmɔːlə(r)/', pos: 'adj', meaning: 'nhỏ hơn', example: 'My hometown is smaller than Hanoi.', exampleVi: 'Quê mình nhỏ hơn Hà Nội.' },
-      { id: 'u20v3', word: 'quieter', ipa: '/ˈkwaɪətə(r)/', pos: 'adj', meaning: 'yên tĩnh hơn', example: 'Life in the countryside is quieter.', exampleVi: 'Cuộc sống ở nông thôn yên tĩnh hơn.' },
-      { id: 'u20v4', word: 'noisier', ipa: '/ˈnɔɪziə(r)/', pos: 'adj', meaning: 'ồn ào hơn', example: 'The city is noisier than the village.', exampleVi: 'Thành phố ồn ào hơn làng quê.', memoryTip: 'noisy → noisier (đổi y thành i rồi thêm -er).' },
-      { id: 'u20v5', word: 'busier', ipa: '/ˈbɪziə(r)/', pos: 'adj', meaning: 'bận rộn, nhộn nhịp hơn', example: 'Ho Chi Minh City is busier than Da Nang.', exampleVi: 'TP. Hồ Chí Minh nhộn nhịp hơn Đà Nẵng.' },
-      { id: 'u20v6', word: 'cheaper', ipa: '/ˈtʃiːpə(r)/', pos: 'adj', meaning: 'rẻ hơn', example: 'Food in the countryside is cheaper.', exampleVi: 'Đồ ăn ở nông thôn rẻ hơn.' },
-      { id: 'u20v7', word: 'more peaceful', ipa: '/mɔː ˈpiːsfl/', pos: 'adj', meaning: 'yên bình hơn', example: 'Life in the countryside is more peaceful.', exampleVi: 'Cuộc sống nông thôn yên bình hơn.' },
-      { id: 'u20v8', word: 'more expensive', ipa: '/mɔːr ɪkˈspensɪv/', pos: 'adj', meaning: 'đắt đỏ hơn', example: 'Life in London is more expensive than in Hanoi.', exampleVi: 'Cuộc sống ở Luân Đôn đắt đỏ hơn ở Hà Nội.' },
-      { id: 'u20v9', word: 'more modern', ipa: '/mɔː ˈmɒdn/', pos: 'adj', meaning: 'hiện đại hơn', example: 'New York is more modern than my town.', exampleVi: 'New York hiện đại hơn thị trấn của mình.' },
-      { id: 'u20v10', word: 'traffic', ipa: '/ˈtræfɪk/', pos: 'n', meaning: 'giao thông, xe cộ', example: 'There is a lot of traffic in the city.', exampleVi: 'Ở thành phố có rất nhiều xe cộ.' },
-      { id: 'u20v11', word: 'villager', ipa: '/ˈvɪlɪdʒə(r)/', pos: 'n', meaning: 'người dân làng', example: 'The villagers are very friendly.', exampleVi: 'Người dân làng rất thân thiện.' },
-      { id: 'u20v12', word: 'fresh air', ipa: '/freʃ eə(r)/', pos: 'n', meaning: 'không khí trong lành', example: 'I love the fresh air in the countryside.', exampleVi: 'Mình thích không khí trong lành ở nông thôn.' },
-    ],
+    vocab: U20_VOCAB_SYNC_25.map((w, idx) => ({
+      id: `u20v${idx + 1}`,
+      word: w.word,
+      ipa: w.ipa,
+      pos: w.pos,
+      meaning: w.meaning,
+      example: w.example,
+      exampleVi: w.exampleVi,
+      memoryTip: w.tip,
+    })),
     grammar: [
       {
         id: 'u20g1',
